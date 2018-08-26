@@ -5,12 +5,6 @@
 #include <vector>
 #include <algorithm>
 
-
-//Declarations of all classes that will be used.
-class Element;
-class Segment;
-class Circle;
-
 class Element {
 public:
 
@@ -26,11 +20,6 @@ public:
 	virtual int distance(Element *)		{ return -1; };
 	virtual bool collideWith(Element *)	{ return false; };
 	virtual bool touch(Element *)			{ return false; };
-
-	//Ideas for Shapes and Movements : we need at each run to update the position and speed of the object
-	virtual void updatePosition(std::vector<Point*>);
-	virtual void update(Point*) {};
-	virtual void tmpUpdate(std::vector<Point*>) {};
 
 	Point getPosition() { return m_position; };
 	Point getDirection() { return m_direction; }

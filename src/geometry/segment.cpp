@@ -6,6 +6,10 @@ Segment::Segment(Point A, Point B)
 {
 	m_Points.push_back(A);
 	m_Points.push_back(B);
+
+	m_position = (A + B)/2.;
+
+	m_direction = getNormal();
 }
 
 bool Segment::hasTwoPoints()
@@ -25,6 +29,12 @@ Point Segment::intersectWith(Segment* pSegment)
 	//Suppose that the first Segment is AB, the second CD, we look for the intersection E such as 
 	//E = A + alpha (B-A) = C + beta (D-C)
 	//All lines ^(B-A) gives A^(B-A) = C^(B-A) + beta (D-C)^(B-A) and gives beta
+	if (!hasTwoPoints() || pSegment->hasTwoPoints())
+	{
+		//TODO : Add error messages somewhere !
+		return DUMMY;
+	}
+
 	Point
 		A = m_Points[0],
 		BminA = m_Points[1] - A,

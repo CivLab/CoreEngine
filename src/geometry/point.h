@@ -22,15 +22,13 @@ public:
 
 	double distance();
 	double distance(Point*);
+
 	Point operator-(Point);
 	Point operator+(Point);
 	Point operator*(double);
 	double operator*(Point);
 	Point operator/(double);
 	bool operator==(Point);
-
-
-
 };
 
 #endif

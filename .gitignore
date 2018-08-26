@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+#Generated files
+*.idb
+*.pdb
+*.tlog
+*.log
+*.lastbuildstate
+*.ipch
+*.db
+*.opendb
+*.suo
+
+#Debug and Release folders
+src/Debug/*

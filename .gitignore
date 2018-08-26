@@ -41,6 +41,7 @@
 *.db
 *.opendb
 *.suo
+*.user
 
 #Debug and Release folders
 src/Debug/*

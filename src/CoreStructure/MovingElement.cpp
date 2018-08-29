@@ -1,7 +1,5 @@
 #include "MovingElement.h"
 
-
-
 MovingElement::MovingElement()
 {
 }

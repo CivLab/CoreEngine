@@ -45,3 +45,6 @@
 
 #Debug and Release folders
 src/Debug/*
+
+#VS crap
+src/.vs/*

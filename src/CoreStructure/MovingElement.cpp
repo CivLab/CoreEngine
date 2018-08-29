@@ -4,7 +4,6 @@ MovingElement::MovingElement()
 {
 }
 
-
 MovingElement::~MovingElement()
 {
 }

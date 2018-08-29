@@ -31,6 +31,7 @@ Point Segment::intersectWith(Segment* pSegment)
 	//All lines ^(B-A) gives A^(B-A) = C^(B-A) + beta (D-C)^(B-A) and gives beta
 	if (!hasTwoPoints() || pSegment->hasTwoPoints())
 	{
+		//Test comment
 		return DUMMY;
 	}
 

@@ -48,3 +48,6 @@ src/Debug/*
 
 #VS crap
 src/.vs/*
+
+#packages
+src/packages/*

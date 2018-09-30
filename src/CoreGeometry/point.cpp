@@ -4,16 +4,16 @@ Point::Point() :X(0), Y(0) {};
 
 Point::Point(double x, double y) :X(x), Y(y) {};
 
-double Point::distance(Point* pPoint)
+double Point::distance(const Point &pPoint)
 {
-	double dX = X - pPoint->X;
-	double dY = Y - pPoint->Y;
+	double dX = X - pPoint.X;
+	double dY = Y - pPoint.Y;
 	return std::sqrt(dX*dX + dY*dY);
 }
 
 double Point::distance()
 {
-	return distance(&Point());
+	return distance(Point());
 }
 
 void Point::translate(double x, double y)
@@ -22,9 +22,9 @@ void Point::translate(double x, double y)
 	Y += y;
 }
 
-void Point::translate(Point p)
+void Point::translate(const Point &p)
 {
-	translate((&p)->X, (&p)->Y);
+	translate(p.X, p.Y);
 }
 
 Point Point::normalize()
@@ -32,19 +32,19 @@ Point Point::normalize()
 	return *this / normL2();
 }
 
-double Point::determinant(Point* pPoint)
+double Point::determinant(const Point &pPoint)
 {
 	// Return Point ^ pPoint*
-	return (X*pPoint->Y - Y*pPoint->X);
+	return (X*pPoint.Y - Y*pPoint.X);
 }
 
 //-----------------------------------
 //Operator Overloads
-Point Point::operator-(Point p) {
+Point Point::operator-(const Point &p) {
 	return Point(X - p.X, Y - p.Y);
 }
 
-Point Point::operator+(Point p)
+Point Point::operator+(const Point &p)
 {
 	return Point(X + p.X, Y + p.Y);
 }
@@ -54,19 +54,19 @@ Point Point::operator*(double k)
 	return Point(k*X, k*Y);
 }
 
-double Point::operator*(Point p) 
+double Point::operator*(const Point &p) 
 {
 	return (X*p.X + Y*p.Y);
 }
 
-bool Point::operator==(Point p)
+bool Point::operator==(const Point &p)
 {
 	return (X == p.X && Y == p.Y);
 }
 
 double Point::normL2() 
 {
-	return distance(&Point(0, 0));
+	return distance(Point(0, 0));
 }
 
 Point Point::operator/(double k) 

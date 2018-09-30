@@ -17,21 +17,21 @@ public:
 	~Point() {}
 	
 	Point normalize();
-	double determinant(Point* pPoint);
+	double determinant(const Point &pPoint);
 	double normL2();
 
 	void translate(double x, double y);
-	void translate(Point p);
+	void translate(const Point &p);
 
 	double distance();
-	double distance(Point*);
+	double distance(const Point &);
 
-	Point operator-(Point);
-	Point operator+(Point);
+	Point operator-(const Point &);
+	Point operator+(const Point &);
 	Point operator*(double);
-	double operator*(Point);
+	double operator*(const Point &);
 	Point operator/(double);
-	bool operator==(Point);
+	bool operator==(const Point &);
 };
 
 #endif

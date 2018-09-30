@@ -20,7 +20,7 @@ bool Segment::hasTwoPoints()
 double Segment::length()
 {
 	//Will return -1 if the Segment has less than two points...
-	int d = hasTwoPoints() ? m_Points[0].distance(&m_Points[1]) : -1;
+	int d = hasTwoPoints() ? m_Points[0].distance(m_Points[1]) : -1;
 	return d;
 }
 
@@ -40,8 +40,8 @@ Point Segment::intersectWith(Segment* pSegment)
 		C = pSegment->getPoints()[0],
 		DminC = pSegment->getPoints()[1] - C;
 
-	double beta_num = ((A - C).determinant(&BminA));
-	double beta_den = (DminC.determinant(&BminA));
+	double beta_num = ((A - C).determinant(BminA));
+	double beta_den = (DminC.determinant(BminA));
 
 	if (beta_den != 0)
 	{
@@ -93,7 +93,7 @@ Point Segment::getClosestOnSegment(Point* pPoint)
 {
 	Point P = projection(pPoint);
 	if (P == DUMMY && hasTwoPoints()) //if the segment exists and the projection is outside of the segment
-		return ((pPoint->distance(&m_Points[0]) <= pPoint->distance(&m_Points[0])) ? m_Points[0] : m_Points[1]);
+		return ((pPoint->distance(m_Points[0]) <= pPoint->distance(m_Points[0])) ? m_Points[0] : m_Points[1]);
 	else
 		return P;
 }
@@ -105,7 +105,7 @@ double Segment::distance(Point* pPoint)
 	//Or the distance to the closest point of the segment if it doesn't
 	Point P = projection(pPoint);
 	if (P == DUMMY)
-		return std::min(pPoint->distance(&m_Points[0]), pPoint->distance(&m_Points[0]));
+		return std::min(pPoint->distance(m_Points[0]), pPoint->distance(m_Points[0]));
 	else
-		return pPoint->distance(&P);
+		return pPoint->distance(P);
 }

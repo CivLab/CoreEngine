@@ -38,6 +38,36 @@ namespace CoreGeometryTests
 
 	};
 
+	TEST_CLASS(point_distance)
+	{
+	public:
+
+		TEST_METHOD(point_distance_is_zero_for_same_point)
+		{
+			Point A = Point(0, 0);
+			Assert::AreEqual((&A)->distance(A), 0.);
+		}
+
+		TEST_METHOD(point_norm_is_2_for_0_2)
+		{
+			Point A = Point(0, 2);
+			Assert::AreEqual((&A)->normL2(), 2.);
+		}
+
+		TEST_METHOD(point_norm_is_2_for_2_0)
+		{
+			Point A = Point(2, 0);
+			Assert::AreEqual((&A)->normL2(), 2.);
+		}
+
+		TEST_METHOD(point_norm_is_sqrt2_for_1_1)
+		{
+			Point A = Point(1, 1);
+			Assert::AreEqual((&A)->normL2(), std::sqrt(2));
+		}
+
+	};
+
 	TEST_CLASS(point_normalize)
 	{
 	public:

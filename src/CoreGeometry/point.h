@@ -32,6 +32,9 @@ public:
 	double operator*(const Point &);
 	Point operator/(double);
 	bool operator==(const Point &);
+
+private:
+	double epsilon = 0.00001;
 };
 
 #endif

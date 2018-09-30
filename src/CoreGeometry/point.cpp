@@ -61,7 +61,7 @@ double Point::operator*(const Point &p)
 
 bool Point::operator==(const Point &p)
 {
-	return (X == p.X && Y == p.Y);
+	return (std::abs(X - p.X) < epsilon && std::abs(Y - p.Y) < epsilon);
 }
 
 double Point::normL2() 

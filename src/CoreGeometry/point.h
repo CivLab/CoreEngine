@@ -20,6 +20,9 @@ public:
 	double determinant(Point* pPoint);
 	double normL2();
 
+	void translate(double x, double y);
+	void translate(Point p);
+
 	double distance();
 	double distance(Point*);
 

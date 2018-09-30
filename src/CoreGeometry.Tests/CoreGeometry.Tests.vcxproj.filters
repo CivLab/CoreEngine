@@ -29,5 +29,8 @@
     <ClCompile Include="segments.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="pointTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

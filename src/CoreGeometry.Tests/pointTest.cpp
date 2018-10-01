@@ -107,6 +107,34 @@ namespace CoreGeometryTests
 		}
 	};
 
+	TEST_CLASS(point_determinant)
+	{
+	public:
+
+		TEST_METHOD(point_determinant_always_zero_for_0_0)
+		{
+			Point A(0, 0);
+			Point B(3, 4);
+			Assert::AreEqual((&A)->determinant(B), 0.);
+		}
+
+		TEST_METHOD(point_determinant_for_two_non_parallel_vectors)
+		{
+			Point A(1, 2);
+			Point B(3, 4);
+
+			Assert::AreEqual((&A)->determinant(B), -2.);
+			Assert::AreEqual((&B)->determinant(A), 2.);
+		}
+
+		TEST_METHOD(point_determinant_always_zero_for_parallel_vectors)
+		{
+			Point A(1., 2.);
+			Point B(2., 4.);
+			Assert::AreEqual((&A)->determinant(B), 0.);
+		}
+	};
+
 	TEST_CLASS(point_Operators)
 	{
 	public:

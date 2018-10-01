@@ -19,9 +19,12 @@ bool Segment::hasTwoPoints()
 
 double Segment::length()
 {
-	//Will return -1 if the Segment has less than two points...
-	int d = hasTwoPoints() ? m_Points[0].distance(m_Points[1]) : -1;
-	return d;
+	if (!hasTwoPoints())
+	{
+		throw std::length_error("Segment has less than two points.");
+	}
+
+	return m_Points[0].distance(m_Points[1]);
 }
 
 Point Segment::intersectWith(Segment* pSegment)
@@ -31,7 +34,7 @@ Point Segment::intersectWith(Segment* pSegment)
 	//All lines ^(B-A) gives A^(B-A) = C^(B-A) + beta (D-C)^(B-A) and gives beta
 	if (!hasTwoPoints() || pSegment->hasTwoPoints())
 	{
-		return DUMMY;
+		throw std::length_error("Segment has less than two points.");
 	}
 
 	Point
@@ -55,14 +58,29 @@ Point Segment::intersectWith(Segment* pSegment)
 
 Point Segment::getNormal()
 {
+	if (!hasTwoPoints())
+	{
+		throw std::length_error("Segment has less than two points.");
+	}
+
+	if (length() <= 0)
+	{
+		return Point(0, 0);
+	}
+
 	Point U(-(m_Points[0].Y - m_Points[1].Y), m_Points[0].X - m_Points[1].X);
 	return U / U.normL2();;
 }
 
 Point Segment::getTangent()
 {
-	Point T = hasTwoPoints() ? m_Points[1] - m_Points[0] : Point();
-	return (T == Point() ? Point() : T / T.normL2());
+	if (!hasTwoPoints())
+	{
+		throw std::length_error("Segment has less than two points.");
+	}
+
+	Point T = m_Points[1] - m_Points[0];
+	return (T / T.normL2());
 }
 
 Point Segment::projection(Point* pPoint)
@@ -85,7 +103,7 @@ Point Segment::projection(Point* pPoint)
 bool Segment::isOnSegment(Point* pPoint)
 {
 	//The point is on the segment if and only if
-	//its projection on the segment is itself
+	//its projection is on the segment is itself
 	return *pPoint == projection(pPoint);
 }
 

@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <vector>
+#include <cmath>
 #include <algorithm>
 #include <exception>
 
@@ -27,7 +28,7 @@ public:
 
 	virtual void updateDirection() {};
 	virtual void updateDirection(const Point &newDirection) { m_position = newDirection; }
-	virtual void updateDirection(int rad) { throw std::logic_error("Function not yet implemented"); }
+	virtual void updateDirection(int rad);
 
 	Point getPosition() { return m_position; }
 	Point getDirection() { return m_direction; }

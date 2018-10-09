@@ -17,9 +17,9 @@ public:
 	//display the shape on screen
 	virtual void display() {};
 	//returns true if the shape collides with another given shape
-	virtual int distance(Element *)		{ return -1; };
-	virtual bool collideWith(Element *)	{ return false; };
-	virtual bool touch(Element *)			{ return false; };
+	virtual int distance(Element &)		{ return -1; };
+	virtual bool collideWith(Element &)	{ return false; };
+	virtual bool touch(Element &)			{ return false; };
 
 	Point getPosition() { return m_position; };
 	Point getDirection() { return m_direction; }

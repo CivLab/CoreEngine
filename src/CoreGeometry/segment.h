@@ -1,5 +1,5 @@
-#ifndef ELEMENT_H
-#define ELEMENT_H
+#ifndef SEGMENT_H
+#define SEGMENT_H
 
 #include "element.h"
 

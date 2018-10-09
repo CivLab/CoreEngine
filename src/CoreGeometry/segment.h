@@ -29,7 +29,6 @@ public:
 	std::pair<bool, Point> projection(const Point &pPoint);
 
 	//Get normal vector
-	Point getNormal(const Element &pElement) { return getNormal(); };
 	Point getNormal();
 	//Get tangent Vector
 	Point getTangent();

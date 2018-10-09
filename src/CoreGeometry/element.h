@@ -28,7 +28,7 @@ public:
 
 	virtual void updateDirection() {};
 	virtual void updateDirection(const Point &newDirection) { m_position = newDirection; }
-	virtual void updateDirection(int rad);
+	virtual void updateDirection(double rad);
 
 	Point getPosition() { return m_position; }
 	Point getDirection() { return m_direction; }

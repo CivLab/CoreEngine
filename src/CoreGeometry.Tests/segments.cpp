@@ -41,7 +41,7 @@ namespace CoreGeometryTests
 			Point C = Point(0, 1);
 			Segment mySegment = Segment(A, B);
 
-			Assert::IsTrue(mySegment.isOnSegment(&C));
+			Assert::IsTrue(mySegment.isOnSegment(C));
 		}
 
 		TEST_METHOD(segment_point_is_outside_segment)
@@ -51,7 +51,7 @@ namespace CoreGeometryTests
 			Point C = Point(1, 1);
 			Segment mySegment = Segment(A, B);
 
-			Assert::IsFalse(mySegment.isOnSegment(&C));
+			Assert::IsFalse(mySegment.isOnSegment(C));
 		}
 
 		TEST_METHOD(segment_point_is_one_extremity_of_segment)
@@ -60,8 +60,8 @@ namespace CoreGeometryTests
 			Point B = Point(0, 2);
 			Segment mySegment = Segment(A, B);
 
-			Assert::IsTrue(mySegment.isOnSegment(&A));
-			Assert::IsTrue(mySegment.isOnSegment(&B));
+			Assert::IsTrue(mySegment.isOnSegment(A));
+			Assert::IsTrue(mySegment.isOnSegment(B));
 
 		}
 

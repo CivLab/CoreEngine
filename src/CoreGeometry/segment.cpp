@@ -27,7 +27,7 @@ double Segment::length()
 	return m_Points[0].distance(m_Points[1]);
 }
 
-std::pair<bool,Point> Segment::intersectWith(Segment* pSegment)
+std::pair<bool,Point> Segment::intersectWith(Segment &pSegment)
 {
 	//Suppose that the first Segment is AB, the second CD, we look for the intersection E such as 
 	//E = A + alpha (B-A) = C + beta (D-C)
@@ -35,7 +35,7 @@ std::pair<bool,Point> Segment::intersectWith(Segment* pSegment)
 	bool intersect = false;
 	Point intersection;
 
-	if (!hasTwoPoints() || pSegment->hasTwoPoints())
+	if (!hasTwoPoints() || pSegment.hasTwoPoints())
 	{
 		throw std::length_error("Segment has less than two points.");
 	}
@@ -43,8 +43,8 @@ std::pair<bool,Point> Segment::intersectWith(Segment* pSegment)
 	Point
 		A = m_Points[0],
 		BminA = m_Points[1] - A,
-		C = pSegment->getPoints()[0],
-		DminC = pSegment->getPoints()[1] - C;
+		C = pSegment.getPoints()[0],
+		DminC = pSegment.getPoints()[1] - C;
 
 	double beta_num = ((A - C).determinant(BminA));
 	double beta_den = (DminC.determinant(BminA));
@@ -93,7 +93,7 @@ Point Segment::getTangent()
 	return (T / T.normL2());
 }
 
-std::pair<bool, Point> Segment::projection(Point* pPoint)
+std::pair<bool, Point> Segment::projection(const Point &pPoint)
 {
 	//If we want to calculate the projection D of C on AB
 	//We write the following equations :
@@ -105,7 +105,7 @@ std::pair<bool, Point> Segment::projection(Point* pPoint)
 	{
 		Point T = m_Points[1] - m_Points[0];
 		double L = length()*length();
-		double alpha = (T.X*(pPoint->X - m_Points[0].X) + T.Y*(pPoint->Y - m_Points[0].Y)) / L;
+		double alpha = (T.X*(pPoint.X - m_Points[0].X) + T.Y*(pPoint.Y - m_Points[0].Y)) / L;
 		if (alpha >= 0 && alpha <= 1)
 		{
 			projectionExists = true;
@@ -116,31 +116,31 @@ std::pair<bool, Point> Segment::projection(Point* pPoint)
 	return (std::make_pair(projectionExists, projection));
 }
 
-bool Segment::isOnSegment(Point* pPoint)
+bool Segment::isOnSegment(Point &pPoint)
 {
 	//The point is on the segment if and only if
 	//its projection is on the segment is itself
 	auto projectionCalc = projection(pPoint);
-	return (projectionCalc.first && *pPoint == projectionCalc.second);
+	return (projectionCalc.first && pPoint == projectionCalc.second);
 }
 
-Point Segment::getClosestOnSegment(Point* pPoint)
+Point Segment::getClosestOnSegment(Point &pPoint)
 {
 	auto projectionCalc = projection(pPoint);
 	if (projectionCalc.first == false && hasTwoPoints()) //if the segment exists and the projection is outside of the segment
-		return ((pPoint->distance(m_Points[0]) <= pPoint->distance(m_Points[0])) ? m_Points[0] : m_Points[1]);
+		return ((pPoint.distance(m_Points[0]) <= pPoint.distance(m_Points[0])) ? m_Points[0] : m_Points[1]);
 	else
 		return projectionCalc.second;
 }
 
 
-double Segment::distance(Point* pPoint)
+double Segment::distance(Point &pPoint)
 {
 	//Either the distance between the point and its projection on the segment if it exists
 	//Or the distance to the closest point of the segment if it doesn't
 	auto projectionCalc = projection(pPoint);
 	if (projectionCalc.first == false)
-		return std::min(pPoint->distance(m_Points[0]), pPoint->distance(m_Points[0]));
+		return std::min(pPoint.distance(m_Points[0]), pPoint.distance(m_Points[1]));
 	else
-		return pPoint->distance(projectionCalc.second);
+		return pPoint.distance(projectionCalc.second);
 }

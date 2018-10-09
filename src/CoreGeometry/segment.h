@@ -19,17 +19,17 @@ public:
 	bool hasTwoPoints();
 
 	//returns True if the point is on the segment
-	bool isOnSegment(Point* pPoint);
+	bool isOnSegment(Point &pPoint);
 	//Returns the shortest distance from a given point to the segment
-	Point getClosestOnSegment(Point* pPoint);
-	double distance(Point* pPoint);
+	Point getClosestOnSegment(Point &pPoint);
+	double distance(Point &pPoint);
 
 	//returns true if a point was found with the point
-	std::pair<bool, Point> intersectWith(Segment* pSegment);
-	std::pair<bool, Point> projection(Point* pPoint);
+	std::pair<bool, Point> intersectWith(Segment &pSegment);
+	std::pair<bool, Point> projection(const Point &pPoint);
 
 	//Get normal vector
-	Point getNormal(Element*) { return getNormal(); };
+	Point getNormal(const Element &pElement) { return getNormal(); };
 	Point getNormal();
 	//Get tangent Vector
 	Point getTangent();

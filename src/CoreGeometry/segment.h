@@ -24,9 +24,9 @@ public:
 	Point getClosestOnSegment(Point* pPoint);
 	double distance(Point* pPoint);
 
-	//Returns a pointer to the intersection with another segment (nullptr if the segments do not intersect)
-	Point intersectWith(Segment* pSegment);
-	Point projection(Point* pPoint);
+	//returns true if a point was found with the point
+	std::pair<bool, Point> intersectWith(Segment* pSegment);
+	std::pair<bool, Point> projection(Point* pPoint);
 
 	//Get normal vector
 	Point getNormal(Element*) { return getNormal(); };

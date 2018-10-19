@@ -23,7 +23,7 @@ Game::Game() : myWindow(sf::VideoMode(640, 480), "SFML Game"), myPlayer()
 	myPlayer.setRadius(40.f);
 	myPlayer.setFillColor(sf::Color::Red);
 	myPlayer.setPosition(100.f, 100.f);
-	moveSpeedRatio = 0.1;
+	moveSpeedRatio = 0.1f;
 
 	movingDown = false;
 	movingLeft = false;

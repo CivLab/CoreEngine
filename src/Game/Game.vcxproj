@@ -177,10 +177,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Parameters.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Parameters.h" />
+    <ClInclude Include="World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreCharacter\Character.vcxproj">
+      <Project>{633756c3-dc5f-43e8-9e34-ff80e11656ab}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreGeometry\geometry.vcxproj">
+      <Project>{3099f08f-58a9-4932-88fd-bba867fea731}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreStructure\CoreStructure.vcxproj">
+      <Project>{142b243f-6a17-420e-a9df-7bfd99f81f83}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WorldInterface\WorldInterface.vcxproj">
+      <Project>{af9fb193-7acc-4ab8-bbd8-e7fb2d34c905}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

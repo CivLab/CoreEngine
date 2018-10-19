@@ -30,11 +30,10 @@ public:
 	virtual void moveProjectiles() = 0;
 
 private:
-	std::map<IObject*, IElement*> objectsMap;
-	std::vector<IMovingElement*> characters;
-	std::vector<IMovingElement*> enemies;
-	std::vector<IMovingElement*> projectiles;
-	std::vector<IDecor*> walls;
+	std::vector<IObject*> characters;
+	std::vector<IObject*> enemies;
+	std::vector<IObject*> projectiles;
+	std::vector<IObject*> walls;
 
 	bool exists;
 };

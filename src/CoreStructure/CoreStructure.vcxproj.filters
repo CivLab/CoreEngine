@@ -21,12 +21,18 @@
     <ClInclude Include="Decor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="element.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MovingElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Decor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="element.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include "point.h"
+#include "../CoreGeometry/point.h"
 #include <vector>
 #include <cmath>
 #include <algorithm>

@@ -113,12 +113,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="point.cpp" />
-    <ClCompile Include="element.cpp" />
     <ClCompile Include="segment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="point.h" />
-    <ClInclude Include="element.h" />
     <ClInclude Include="segment.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

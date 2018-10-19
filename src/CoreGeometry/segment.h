@@ -1,9 +1,14 @@
 #ifndef SEGMENT_H
 #define SEGMENT_H
 
-#include "element.h"
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <exception>
 
-class Segment : public Element
+#include "point.h"
+
+class Segment
 {
 
 	//Note : The class will regroup both Segment and Vectors... See if it has to be changed later.
@@ -39,5 +44,8 @@ public:
 protected:
 	//should contain 2 points
 	std::vector<Point> m_Points;
+	Point m_direction;
+	Point m_position;
+	int m_ID; //Should we give them some ID so that we can recognise them in case of problem/bug ?
 };
 #endif // !ELEMENT_H

@@ -16,7 +16,8 @@ public:
 
 	virtual void initialize() = 0;
 	virtual void update() = 0;
-
+	virtual void checkCurrentSituation() = 0;
+	virtual void clean() = 0;
 
 	virtual void kill(IMovingElement&) = 0;
 	virtual void resolveConflicts() = 0;
@@ -34,5 +35,7 @@ private:
 	std::vector<IMovingElement*> enemies;
 	std::vector<IMovingElement*> projectiles;
 	std::vector<IDecor*> walls;
+
+	bool exists;
 };
 

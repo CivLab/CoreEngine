@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../CoreGeometry/element.h"
+#include "element.h"
 
 class Decor : Element
 {

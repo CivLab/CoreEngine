@@ -113,10 +113,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Decor.h" />
+    <ClInclude Include="element.h" />
     <ClInclude Include="MovingElement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Decor.cpp" />
+    <ClCompile Include="element.cpp" />
     <ClCompile Include="MovingElement.cpp" />
   </ItemGroup>
   <ItemGroup>

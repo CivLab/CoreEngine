@@ -18,18 +18,12 @@
     <ClCompile Include="point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="element.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="segment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="segment.h">

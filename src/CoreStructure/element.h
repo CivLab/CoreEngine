@@ -7,7 +7,8 @@
 #include <algorithm>
 #include <exception>
 
-class Element {
+class Element 
+{
 public:
 
 	Element() {}

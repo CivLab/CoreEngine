@@ -24,6 +24,7 @@ public:
 
 	void translate(double x, double y);
 	void translate(const Point &p);
+	void rotate(float angle);
 
 	double distance();
 	double distance(const Point &);

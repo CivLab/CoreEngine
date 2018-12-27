@@ -1,7 +1,7 @@
 #pragma once
 #include "element.h"
 
-class MovingElement : Element
+class MovingElement : public Element
 {
 public:
 	MovingElement();

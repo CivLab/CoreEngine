@@ -77,3 +77,11 @@ Point Point::operator/(double k)
 	}
 	return operator*(1 / k);
 }
+
+void Point::rotate(float angle)
+{
+	float newX = X * cos(angle) - Y * sin(angle);
+	float newY = X * sin(angle) + Y * cos(angle);
+	X = newX;
+	Y = newY;
+}

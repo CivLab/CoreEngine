@@ -8,11 +8,14 @@ class Object : IObject
 {
 public:
 	Object();
-	Object(std::string name, sf::Shape& shape, MovingElement movingElement);
+	Object(std::string name, sf::CircleShape& shape, MovingElement movingElement);
 	virtual ~Object();
 
-private:
-	sf::Shape* m_shape;
+	void setTexture(const char * file);
+
+//private:
+	sf::CircleShape* m_shape;
+	sf::Texture m_texture;
 	MovingElement* m_movingElement;
 	Character* m_Character;
 };

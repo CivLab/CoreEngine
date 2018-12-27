@@ -4,7 +4,7 @@ Object::Object()
 {
 }
 
-Object::Object(std::string name, sf::Shape & shape, MovingElement movingElement)
+Object::Object(std::string name, sf::CircleShape & shape, MovingElement movingElement)
 {
 	m_name = name;
 	m_shape = &shape;
@@ -14,4 +14,16 @@ Object::Object(std::string name, sf::Shape & shape, MovingElement movingElement)
 
 Object::~Object()
 {
+}
+
+void Object::setTexture(const char * file)
+{
+	if (!m_texture.loadFromFile(file))
+	{
+		m_shape->setFillColor(sf::Color::Red);
+	}
+	else
+	{
+		m_shape->setTexture(&m_texture);
+	}
 }

@@ -3,14 +3,40 @@
 Game::Game() : myWindow(sf::VideoMode(640, 480), "SFML Game"), myPlayer()
 {
 	myPlayer.setRadius(40.f);
-	myPlayer.setFillColor(sf::Color::Red);
+	myPlayer.setOrigin(40., 40.);
+
 	myPlayer.setPosition(100.f, 100.f);
-	moveSpeedRatio = 0.1f;
+	moveSpeedRatio = 0.05f;
+	turnSpeedRatio = 0.025f;
+
+	if (!m_texture.loadFromFile("../ressources/greenChar40px.jpg"))
+	{
+		myPlayer.setFillColor(sf::Color::Red);
+	}
+	else
+	{
+		myPlayer.setTexture(&m_texture);
+	}
+
 
 	movingDown = false;
 	movingLeft = false;
 	movingRight = false;
 	movingUp = false;
+	turningLeft = false;
+	turningRight = false;
+}
+
+void Game::initalizePlayer()
+{
+	m_player->m_shape->setRadius(40.f);
+	m_player->m_shape->setOrigin(40., 40.);
+
+	m_player->m_shape->setPosition(100.f, 100.f);
+	moveSpeedRatio = 0.05f;
+	turnSpeedRatio = 0.025f;
+
+	m_player->setTexture(".. / ressources / greenChar40px.jpg");
 }
 
 void Game::run()
@@ -43,6 +69,8 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 	else if (key == KEYDOWN) movingDown = isPressed;
 	else if (key == KEYLEFT) movingLeft = isPressed;
 	else if (key == KEYRIGHT) movingRight = isPressed;
+	else if (key == KEYTURNLEFT) turningLeft = isPressed;
+	else if (key == KEYTURNRIGHT) turningRight = isPressed;
 }
 
 void Game::updatePlayerMovement()
@@ -52,6 +80,8 @@ void Game::updatePlayerMovement()
 	if (movingDown) playerMovement.y += 1.f*moveSpeedRatio;
 	if (movingLeft) playerMovement.x -= 1.f*moveSpeedRatio;
 	if (movingRight) playerMovement.x += 1.f*moveSpeedRatio;
+	if (turningLeft) myPlayer.rotate(-turnSpeedRatio);
+	if (turningRight) myPlayer.rotate(turnSpeedRatio);
 
 	myPlayer.move(playerMovement);
 }

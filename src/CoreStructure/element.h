@@ -24,7 +24,7 @@ public:
 	virtual bool touch(Element &)			{ return false; };
 
 	virtual void updatePosition() {};
-	virtual void updatePosition(const Point &vector) { m_position = m_position + vector; }
+	virtual void updatePosition(const Point &vector, bool teleport) { m_position = m_position + vector; }
 
 	virtual void updateDirection() {};
 	virtual void updateDirection(const Point &newDirection) { m_position = newDirection; }

@@ -7,7 +7,7 @@ public:
 	IObject() {};
 	virtual ~IObject() {};
 
-private:
+protected:
 	std::string m_name;
 };
 

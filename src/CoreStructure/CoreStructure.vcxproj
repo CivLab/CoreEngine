@@ -122,7 +122,7 @@
     <ClCompile Include="MovingElement.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\geometry\geometry.vcxproj">
+    <ProjectReference Include="..\CoreGeometry\geometry.vcxproj">
       <Project>{3099f08f-58a9-4932-88fd-bba867fea731}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -28,11 +28,11 @@ void Character::updateStatut()
 
 void Character::isHit(int damage)
 {
-	m_life = (fmax(0, m_life - damage));
+	m_life = (int)(fmax(0, m_life - damage));
 	updateStatut();
 }
 
 void Character::isHealed(int heal)
 {
-	m_life = fmin(m_maxLife, m_life + heal);
+	m_life = (int)fmin(m_maxLife, m_life + heal);
 }

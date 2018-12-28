@@ -78,8 +78,12 @@ Point Point::operator/(double k)
 	return operator*(1 / k);
 }
 
-void Point::rotate(float angle)
+void Point::rotate(float angle, bool rad)
 {
+	if (!rad)
+	{
+		angle = angle * PI / 180.f;
+	}
 	float newX = X * cos(angle) - Y * sin(angle);
 	float newY = X * sin(angle) + Y * cos(angle);
 	X = newX;

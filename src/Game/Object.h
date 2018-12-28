@@ -11,9 +11,9 @@ public:
 	enum direction
 	{
 		UP = 0,
-		LEFT = 1,
+		RIGHT = 1,
 		DOWN = 2,
-		RIGHT = 3
+		LEFT = 3
 	};
 
 	Object();

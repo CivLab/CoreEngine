@@ -24,5 +24,5 @@ void MovingElement::move(Point * direction, float timeUnits)
 void MovingElement::move(Point * direction, float timeUnits, float speed)
 {
 	float distance = timeUnits * speed;
-	updatePosition(*direction*distance);
+	updatePosition(*direction*distance, false);
 }

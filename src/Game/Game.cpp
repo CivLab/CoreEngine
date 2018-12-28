@@ -2,6 +2,8 @@
 
 Game::Game() : myWindow(sf::VideoMode(640, 480), "SFML Game"), myPlayer()
 {
+	m_player = new Object();
+	/*
 	myPlayer.setRadius(40.f);
 	myPlayer.setOrigin(40., 40.);
 
@@ -17,7 +19,8 @@ Game::Game() : myWindow(sf::VideoMode(640, 480), "SFML Game"), myPlayer()
 	{
 		myPlayer.setTexture(&m_texture);
 	}
-
+	*/
+	initializePlayer();
 
 	movingDown = false;
 	movingLeft = false;
@@ -27,7 +30,7 @@ Game::Game() : myWindow(sf::VideoMode(640, 480), "SFML Game"), myPlayer()
 	turningRight = false;
 }
 
-void Game::initalizePlayer()
+void Game::initializePlayer()
 {
 	m_player->m_shape->setRadius(40.f);
 	m_player->m_shape->setOrigin(40., 40.);
@@ -36,7 +39,7 @@ void Game::initalizePlayer()
 	moveSpeedRatio = 0.05f;
 	turnSpeedRatio = 0.025f;
 
-	m_player->setTexture(".. / ressources / greenChar40px.jpg");
+	m_player->setTexture("../ressources/greenChar40px.jpg");
 }
 
 void Game::run()
@@ -73,6 +76,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 	else if (key == KEYTURNRIGHT) turningRight = isPressed;
 }
 
+/*
 void Game::updatePlayerMovement()
 {
 	sf::Vector2f playerMovement(0.f, 0.f);
@@ -85,10 +89,20 @@ void Game::updatePlayerMovement()
 
 	myPlayer.move(playerMovement);
 }
+*/
+void Game::updatePlayerMovement()
+{
+	if (movingUp) m_player->moveInGame(Object::UP, moveSpeedRatio);
+	if (movingDown) m_player->moveInGame(Object::DOWN, moveSpeedRatio);
+	if (movingLeft) m_player->moveInGame(Object::LEFT, moveSpeedRatio);
+	if (movingRight) m_player->moveInGame(Object::RIGHT, moveSpeedRatio);
+	if (turningLeft) m_player->rotate(-turnSpeedRatio);
+	if (turningRight) m_player->rotate(turnSpeedRatio);
+}
 
 void Game::render()
 {
 	myWindow.clear();
-	myWindow.draw(myPlayer);
+	myWindow.draw(*m_player->m_shape);
 	myWindow.display();
 }

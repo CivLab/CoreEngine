@@ -5,7 +5,7 @@
 #include<stdexcept>
 
 #define DUMMY Point(-1,-1)
-
+constexpr auto PI = 3.14159265;
 const double epsilon = 0.000001;
 
 class Point {
@@ -24,7 +24,7 @@ public:
 
 	void translate(double x, double y);
 	void translate(const Point &p);
-	void rotate(float angle);
+	void rotate(float angle, bool rad = false);
 
 	double distance();
 	double distance(const Point &);

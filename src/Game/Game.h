@@ -11,11 +11,12 @@
 #define KEYTURNLEFT sf::Keyboard::A
 #define KEYTURNRIGHT sf::Keyboard::E
 
+
 class Game
 {
 public:
 	Game();
-	void initalizePlayer();
+	void initializePlayer();
 	void run();
 private:
 	void ProcessEvents();

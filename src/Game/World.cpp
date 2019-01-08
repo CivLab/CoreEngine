@@ -25,7 +25,7 @@ void World::clean()
 {
 }
 
-void World::kill(IElement &)
+void World::kill(IObject &)
 {
 }
 
@@ -33,16 +33,16 @@ void World::resolveConflicts()
 {
 }
 
-void World::calculateExpectedEndPosition(IElement &)
+void World::calculateExpectedEndPosition(IObject &)
 {
 }
 
-bool World::tryToMove(IElement &)
+bool World::tryToMove(IObject &)
 {
 	return true;
 }
 
-void World::move(IElement &)
+void World::move(IObject &)
 {
 }
 
@@ -64,17 +64,18 @@ void World::initializePlayer()
 	auto myPlayerElem = Element();
 }
 
-bool World::isNotMovingInWalls(IElement &myElement)
+bool World::isNotMovingInWalls(IObject& myObject)
 {
 	if (walls.size() == 0)
 	{
 		return true;
 	}
+	IElement* myElement = myObject.getElement();
 
 	for (auto pWall : walls)
 	{
 		IElement* pWallElem = pWall->getElement();
-		if (myElement.collideWith(*pWallElem))
+		if (myElement->collideWith(*pWallElem))
 		{
 			return false;
 		}

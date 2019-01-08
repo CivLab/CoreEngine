@@ -19,13 +19,13 @@ public:
 	virtual void checkCurrentSituation() = 0;
 	virtual void clean() = 0;
 
-	virtual void kill(IElement&) = 0;
+	virtual void kill(IObject&) = 0;
 	virtual void resolveConflicts() = 0;
-	virtual void calculateExpectedEndPosition(IElement&) = 0;
+	virtual void calculateExpectedEndPosition(IObject&) = 0;
 
-	virtual bool tryToMove(IElement&) = 0;
-	virtual bool isNotMovingInWalls(IElement&) = 0;
-	virtual void move(IElement&) = 0;
+	virtual bool tryToMove(IObject&) = 0;
+	virtual bool isNotMovingInWalls(IObject&) = 0;
+	virtual void move(IObject&) = 0;
 	virtual void moveCharacters() = 0;
 	virtual void moveEnemies() = 0;
 	virtual void moveProjectiles() = 0;

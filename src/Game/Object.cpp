@@ -54,3 +54,8 @@ void Object::rotate(float angle)
 	m_shape->rotate(angle);
 	m_movingElement->rotate(angle);
 }
+
+IElement * Object::getElement()
+{
+	return m_movingElement;
+}

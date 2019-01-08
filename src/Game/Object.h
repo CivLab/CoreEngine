@@ -33,5 +33,9 @@ public:
 	Character* m_Character;
 
 
+
+	// Inherited via IObject
+	virtual IElement * getElement() override;
+
 };
 

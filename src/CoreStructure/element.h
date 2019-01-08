@@ -2,16 +2,17 @@
 #define ELEMENT_H
 
 #include "../CoreGeometry/point.h"
+#include "../WorldInterface/IElement.h"
 #include <vector>
 #include <cmath>
 #include <algorithm>
 #include <exception>
 
-class Element 
+class Element : public IElement
 {
 public:
 
-	Element() {}
+	Element() : m_isSolid(true) {}
 	virtual ~Element() {}
 
 //-----------------------------------------
@@ -20,9 +21,9 @@ public:
 	//display the shape on screen
 	virtual void display() {};
 	//returns true if the shape collides with another given shape
-	virtual double distance(Element &)		{ return -1; };
-	virtual bool collideWith(Element &)	{ return false; };
-	virtual bool touch(Element &)			{ return false; };
+	virtual double distance(IElement &)		{ return -1; };
+	virtual bool collideWith(IElement &)	{ return false; };
+	virtual bool touch(IElement &)			{ return false; };
 
 	virtual void updatePosition() {};
 	virtual void updatePosition(const Point &vector, bool teleport);
@@ -31,6 +32,8 @@ public:
 	virtual void updateDirection() {};
 	virtual void updateDirection(const Point &newDirection) { m_position = newDirection; }
 	virtual void updateDirection(double angle, bool rad = false);
+
+	bool isSolid() { return m_isSolid; }
 
 	Point getPosition() { return m_position; }
 	Point getDirection() { return m_direction; }
@@ -42,5 +45,6 @@ protected:
 	Point m_direction;
 	Point m_position;
 	int m_ID; //Should we give them some ID so that we can recognise them in case of problem/bug ?
+	bool m_isSolid; //Will it be treated for collisions ?
 };
 #endif

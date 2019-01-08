@@ -1,5 +1,6 @@
 #pragma once
-class IMovingElement
+#include "IElement.h"
+class IMovingElement : public IElement
 {
 public:
 	IMovingElement() {};
